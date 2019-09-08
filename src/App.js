@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Posts from './controllers/Posts';
 import Post from './controllers/Post';
+import SignIn from './controllers/SignIn';
 
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <div>
-          <Route
-            exact
-            path="/:site"
-            component={props => <Posts {...props} />}
-          />
-          <Route
-            exact
-            path="/:site/:slug"
-            component={props => <Post {...props} />}
-          />
-        </div>
-      </Switch>
+      <Router>
+        <Switch>
+          <Route exact path="/signin" component={SignIn} />
+          <Route path="/:site" component={props => <Posts {...props} />} />
+          <Route path="/:site/:slug" component={props => <Post {...props} />} />
+        </Switch>
+      </Router>
     );
   }
 }
