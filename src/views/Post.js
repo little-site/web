@@ -64,6 +64,7 @@ class Post extends Component {
   }
 
   render() {
+    // console.log(this.props);
     return (
       <div
         className={`Inline Post ${this.state.shouldHide ? 'Post--hidden' : ''}`}
@@ -75,13 +76,17 @@ class Post extends Component {
         <div className="Post__info">
           {this.renderCreatedDate()}
           {this.renderLocation()}
-          <Link
-            className="Post__info__right-link"
-            to={`/posts/${this.props.slug}/`}
-          >
-            Link
-          </Link>
-          {this.props.show_tweet ? (
+          {this.props.show_link ? (
+            <Link
+              className="Post__info__right-link"
+              to={`/${this.props.site}/${this.props.slug}/`}
+            >
+              Link
+            </Link>
+          ) : (
+            undefined
+          )}
+          {this.props.tweet_id !== null ? (
             <a
               className="Post__info__right-link"
               href={`https://twitter.com/davehariri/status/${

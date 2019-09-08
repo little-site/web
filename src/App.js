@@ -8,10 +8,14 @@ class App extends Component {
     return (
       <Switch>
         <div>
-          <Route exact path="/" component={() => <Posts />} />
           <Route
             exact
-            path="/posts/:slug"
+            path="/:site"
+            component={props => <Posts {...props} />}
+          />
+          <Route
+            exact
+            path="/:site/:slug"
             component={props => <Post {...props} />}
           />
         </div>
