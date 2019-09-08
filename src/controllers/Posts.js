@@ -14,8 +14,8 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    // Fetch posts from the API
-    this.api.getPosts().then(posts => {
+    console.log(this.props);
+    this.api.getPosts(this.props.match.params.site).then(posts => {
       this.setState({ posts });
     });
   }

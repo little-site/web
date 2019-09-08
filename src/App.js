@@ -8,7 +8,11 @@ class App extends Component {
     return (
       <Switch>
         <div>
-          <Route exact path="/" component={() => <Posts />} />
+          <Route
+            exact
+            path="/:site"
+            component={props => <Posts {...props} />}
+          />
           <Route
             exact
             path="/posts/:slug"

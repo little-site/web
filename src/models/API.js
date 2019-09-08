@@ -35,10 +35,10 @@ class API {
     });
   }
 
-  getPosts() {
+  getPosts(forSiteHandle) {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseURL}/sites/${this.siteHandle}/posts/?size=50`)
+        .get(`${this.baseURL}/sites/${forSiteHandle}/posts/?size=50`)
         .then(response => {
           resolve(
             response.data.posts.map(

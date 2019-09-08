@@ -26,7 +26,10 @@ class Posts extends Component {
       <div className="Posts">
         <Nav />
         {this.state.post ? (
-          <Post {...this.state.post} show_tweet={true} />
+          <Post
+            {...this.state.post}
+            show_tweet={this.state.post.tweet_id != null}
+          />
         ) : (
           undefined
         )}
