@@ -5,7 +5,6 @@ import './Nav.css';
 
 class Nav extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="Inline Nav">
         <Link to={`/${this.props.site}`}>{this.props.site}</Link>

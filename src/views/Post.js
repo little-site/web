@@ -64,7 +64,6 @@ class Post extends Component {
   }
 
   render() {
-    // console.log(this.props);
     return (
       <div
         className={`Inline Post ${this.state.shouldHide ? 'Post--hidden' : ''}`}
