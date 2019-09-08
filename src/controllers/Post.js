@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import API from '../models/API';
-import Post from '../views/Post';
+import PostView from '../views/Post';
 import Nav from '../views/Nav';
 
-class Posts extends Component {
+class Post extends Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +25,7 @@ class Posts extends Component {
       <div className="Posts">
         <Nav site={this.props.match.params.site} />
         {this.state.post ? (
-          <Post
+          <PostView
             {...this.state.post}
             site={this.props.match.params.site}
             show_link={false}
@@ -38,4 +38,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default Post;

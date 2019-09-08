@@ -10,8 +10,16 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/signin" component={SignIn} />
-          <Route path="/:site" component={props => <Posts {...props} />} />
-          <Route path="/:site/:slug" component={props => <Post {...props} />} />
+          <Route
+            exact
+            path="/:site"
+            component={props => <Posts {...props} />}
+          />
+          <Route
+            exact
+            path="/:site/:slug"
+            component={props => <Post {...props} />}
+          />
         </Switch>
       </Router>
     );

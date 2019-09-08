@@ -5,7 +5,7 @@ import Media from '../views/Media';
 import './Base.css';
 import './Post.css';
 
-class Post extends Component {
+class PostView extends Component {
   constructor(props) {
     super(props);
 
@@ -104,4 +104,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default PostView;

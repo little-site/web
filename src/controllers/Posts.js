@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../models/API';
-import Post from '../views/Post';
+import PostView from '../views/Post';
 import Nav from '../views/Nav';
 
 class Posts extends Component {
@@ -25,7 +25,7 @@ class Posts extends Component {
       <div className="Posts">
         <Nav site={this.props.match.params.site} />
         {this.state.posts.map(p => (
-          <Post
+          <PostView
             key={p.id}
             site={this.props.match.params.site}
             show_link={true}
