@@ -2,8 +2,9 @@ import Post from './Post';
 import axios from 'axios';
 
 class API {
-  constructor(authToken, baseURL = 'https://api.dhariri.com') {
+  constructor(authToken, baseURL = 'https://api.little.site') {
     this.baseURL = baseURL;
+    this.siteHandle = 'david-hariri'; // FIXME: This needs to be dynamic
   }
 
   getPost(id) {
@@ -37,7 +38,7 @@ class API {
   getPosts() {
     return new Promise((resolve, reject) => {
       axios
-        .get(`${this.baseURL}/posts/?size=50`)
+        .get(`${this.baseURL}/sites/${this.siteHandle}/posts/?size=50`)
         .then(response => {
           resolve(
             response.data.posts.map(
