@@ -15,7 +15,6 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    // Fetch posts from the API
     this.api.getPost(this.props.match.params.slug).then(posts => {
       this.setState({ post: posts[0] });
     });
@@ -24,11 +23,12 @@ class Posts extends Component {
   render() {
     return (
       <div className="Posts">
-        <Nav />
+        <Nav site={this.props.match.params.site} />
         {this.state.post ? (
           <Post
             {...this.state.post}
-            show_tweet={this.state.post.tweet_id != null}
+            site={this.props.match.params.site}
+            show_link={false}
           />
         ) : (
           undefined

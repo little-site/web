@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../models/API';
 import Post from '../views/Post';
+import Nav from '../views/Nav';
 
 class Posts extends Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.api.getPosts(this.props.match.params.site).then(posts => {
       this.setState({ posts });
     });
@@ -23,8 +23,14 @@ class Posts extends Component {
   render() {
     return (
       <div className="Posts">
-        {this.state.posts.map(n => (
-          <Post key={n.id} {...n} />
+        <Nav site={this.props.match.params.site} />
+        {this.state.posts.map(p => (
+          <Post
+            key={p.id}
+            site={this.props.match.params.site}
+            show_link={true}
+            {...p}
+          />
         ))}
       </div>
     );

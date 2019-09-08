@@ -4,7 +4,6 @@ import axios from 'axios';
 class API {
   constructor(authToken, baseURL = 'https://api.little.site') {
     this.baseURL = baseURL;
-    this.siteHandle = 'david-hariri'; // FIXME: This needs to be dynamic
   }
 
   getPost(id) {

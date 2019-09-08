@@ -15,7 +15,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/posts/:slug"
+            path="/:site/:slug"
             component={props => <Post {...props} />}
           />
         </div>
