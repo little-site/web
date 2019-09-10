@@ -51,7 +51,7 @@ class PostView extends Component {
           className="Post__info__location"
           href={`http://maps.apple.com/?ll=${this.props.location_lat},${
             this.props.location_lon
-          }`}
+          }&q=${this.props.location_name}`}
         >
           {this.props.location_name}
         </a>
