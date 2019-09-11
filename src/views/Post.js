@@ -73,18 +73,10 @@ class PostView extends Component {
           {this.renderMedia()}
         </div>
         <div className="Post__info">
-          {this.renderCreatedDate()}
+          <Link to={`/${this.props.site}/${this.props.slug}/`}>
+            {this.renderCreatedDate()}
+          </Link>
           {this.renderLocation()}
-          {this.props.show_link ? (
-            <Link
-              className="Post__info__right-link"
-              to={`/${this.props.site}/${this.props.slug}/`}
-            >
-              Link
-            </Link>
-          ) : (
-            undefined
-          )}
           {this.props.tweet_id !== null ? (
             <a
               className="Post__info__right-link"
