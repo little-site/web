@@ -7,7 +7,7 @@ import './SignIn.css';
 class SignInView extends Component {
   render() {
     return (
-      <div className="Inline SignIn">
+      <div className="mw5 measure ph3">
         {!this.props.signedIn && !this.props.token ? (
           <GoogleLogin
             clientId="840963869418-8ee1i9jg4h6gjm32aseuo4n8d5j3u89v.apps.googleusercontent.com"

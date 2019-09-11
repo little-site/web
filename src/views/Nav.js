@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Base.css';
-import './Nav.css';
+
+const NavStyle = 'mw5 measure ph3 center pt4 mt3',
+  LinkStyle = 'fade-in black-90 no-underline f6';
 
 class Nav extends Component {
   render() {
     return (
-      <div className="Inline Nav">
-        <Link to={`/${this.props.site}`}>{this.props.site}</Link>
+      <div className={NavStyle}>
+        <Link className={LinkStyle} to={`/${this.props.site}`}>
+          {this.props.site}
+        </Link>
       </div>
     );
   }

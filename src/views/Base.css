@@ -1,21 +1,18 @@
+@import '~tachyons/css/tachyons.css';
+
 /* Variabes */
 :root {
 }
 
 /* Functional Classes */
 
+.min-h5 {
+  min-height: 16rem;
+}
+
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 1s;
-}
-
-/* Old Semantic Classes */
-
-.Inline {
-  max-width: 480px;
-  margin: 0 auto;
-  padding-right: 16px;
-  padding-left: 16px;
 }
 
 @keyframes fadeIn {
@@ -26,4 +23,8 @@
   to {
     opacity: 1;
   }
+}
+
+p:last-child {
+  margin-bottom: 0;
 }

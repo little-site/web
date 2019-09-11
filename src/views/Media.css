@@ -2,9 +2,9 @@
   box-sizing: border-box;
   display: block;
   overflow: hidden;
-  min-height: 32px;
+  min-height: 2rem;
   width: 100%;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   cursor: pointer;
   position: relative;
 }
@@ -21,17 +21,3 @@
 .Media__wrapper video.hidden {
   opacity: 0;
 }
-
-/*
-
-.Post__content img,
-.Post__content video {
-  width: 100%;
-  display: block;
-  margin: 8px 0;
-  z-index: 0;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-*/

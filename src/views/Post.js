@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Media from '../views/Media';
 import './Base.css';
-import './Post.css';
+
+const Post = 'fade-in min-h5 pv5',
+  PostContentFormat = 'f5 lh-copy mb4',
+  PostInfo = 'mt2 f7 black-30 w-100',
+  PostRight = 'fl ml3',
+  Linked = 'underline-hover link color-inherit',
+  Inline = 'mw5 measure ph3 center';
 
 class PostView extends Component {
   constructor(props) {
@@ -27,7 +33,11 @@ class PostView extends Component {
     }
 
     return this.props.comment.split('\n').map((t, i) => {
-      return <p key={i}>{t}</p>;
+      return (
+        <p className={PostContentFormat} key={i}>
+          {t}
+        </p>
+      );
     });
   }
 
@@ -48,10 +58,8 @@ class PostView extends Component {
       <span>
         &nbsp;—&nbsp;
         <a
-          className="Post__info__location"
-          href={`http://maps.apple.com/?ll=${this.props.location_lat},${
-            this.props.location_lon
-          }&q=${this.props.location_name}`}
+          className={Linked}
+          href={`http://maps.apple.com/?ll=${this.props.location_lat},${this.props.location_lon}&q=${this.props.location_name}`}
         >
           {this.props.location_name}
         </a>
@@ -66,23 +74,26 @@ class PostView extends Component {
   render() {
     return (
       <div
-        className={`Inline Post ${this.state.shouldHide ? 'Post--hidden' : ''}`}
+        className={`${Inline} ${Post} ${
+          this.state.shouldHide ? 'Post--hidden' : ''
+        }`}
       >
-        <div className="Post__content">
+        <div>
           {this.renderText()}
           {this.renderMedia()}
         </div>
-        <div className="Post__info">
-          <Link to={`/${this.props.site}/${this.props.slug}/`}>
+        <div className={PostInfo}>
+          <Link
+            className={Linked}
+            to={`/${this.props.site}/${this.props.slug}/`}
+          >
             {this.renderCreatedDate()}
           </Link>
           {this.renderLocation()}
           {this.props.tweet_id !== null ? (
             <a
-              className="Post__info__right-link"
-              href={`https://twitter.com/davehariri/status/${
-                this.props.tweet_id
-              }`}
+              className={`${PostRight} ${Linked}`}
+              href={`https://twitter.com/davehariri/status/${this.props.tweet_id}`}
               target="_blank"
             >
               On Twitter
