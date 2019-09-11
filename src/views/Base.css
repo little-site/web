@@ -1,3 +1,16 @@
+/* Variabes */
+:root {
+}
+
+/* Functional Classes */
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+/* Old Semantic Classes */
+
 .Inline {
   max-width: 480px;
   margin: 0 auto;
