@@ -4,6 +4,8 @@ import Posts from './controllers/Posts';
 import Post from './controllers/Post';
 import SignIn from './controllers/SignIn';
 
+const reload = () => window.location.reload();
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +21,11 @@ class App extends Component {
             exact
             path="/:site/:slug"
             component={props => <Post {...props} />}
+          />
+          <Route
+            exact
+            path="/.well-known/apple-developer-domain-association.txt"
+            onEnter={reload}
           />
         </Switch>
       </Router>
