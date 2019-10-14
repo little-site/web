@@ -2,6 +2,20 @@
 
 /* Variabes */
 :root {
+  --bg: rgba(255, 255, 255, 1);
+  --co: rgba(0, 0, 0, 0.9);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: rgba(0, 0, 0, 0.9);
+    --co: rgba(255, 255, 255, 1);
+  }
+}
+
+/* Global Classes */
+body {
+  background: var(--bg);
+  color: var(--co);
 }
 
 /* Functional Classes */
@@ -13,6 +27,21 @@
 .fade-in {
   animation-name: fadeIn;
   animation-duration: 1s;
+}
+
+.transition-opacity {
+  transition: 300ms opacity ease;
+}
+
+.oversize {
+  transform: scale(1.005);
+}
+
+.post-hover-show {
+  opacity: 0;
+}
+.post:hover .post-hover-show {
+  opacity: 1;
 }
 
 @keyframes fadeIn {

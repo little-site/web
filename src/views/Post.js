@@ -4,12 +4,13 @@ import moment from 'moment';
 import Media from '../views/Media';
 import './Base.css';
 
-const Post = 'fade-in min-h5 pv5',
+const Post = 'post fade-in min-h5 pv5',
   PostContentFormat = 'f5 lh-copy mb4',
-  PostInfo = 'mt2 f7 black-30 w-100',
-  PostRight = 'fl ml3',
+  PostInfo = 'mt2 f7 color-inherit o-30 w-100',
+  MetaRight = 'fr ml3',
   Linked = 'underline-hover link color-inherit',
-  Inline = 'mw5 measure ph3 center';
+  Inline = 'mw5 measure ph3 center',
+  Permalink = 'post-hover-show transition-opacity';
 
 class PostView extends Component {
   constructor(props) {
@@ -79,8 +80,8 @@ class PostView extends Component {
         }`}
       >
         <div>
-          {this.renderText()}
           {this.renderMedia()}
+          {this.renderText()}
         </div>
         <div className={PostInfo}>
           <Link
@@ -90,9 +91,19 @@ class PostView extends Component {
             {this.renderCreatedDate()}
           </Link>
           {this.renderLocation()}
+          {this.props.show_link ? (
+            <Link
+              className={`${MetaRight} ${Linked} ${Permalink}`}
+              to={`/${this.props.site}/${this.props.slug}/`}
+            >
+              Link
+            </Link>
+          ) : (
+            undefined
+          )}
           {this.props.tweet_id !== null ? (
             <a
-              className={`${PostRight} ${Linked}`}
+              className={MetaRight}
               href={`https://twitter.com/davehariri/status/${this.props.tweet_id}`}
               target="_blank"
             >

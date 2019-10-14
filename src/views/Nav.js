@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Base.css';
 
 const NavStyle = 'mw5 measure ph3 center pt4 mt3',
-  LinkStyle = 'fade-in black-90 no-underline f6';
+  LinkStyle = 'fade-in color-inherit no-underline f6';
 
 class Nav extends Component {
   render() {
