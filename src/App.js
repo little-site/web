@@ -5,6 +5,8 @@ import Post from './controllers/Post';
 import SignIn from './controllers/SignIn';
 import Index from './views/Home';
 
+const reload = () => window.location.reload();
+
 class App extends Component {
   render() {
     return (
@@ -25,6 +27,8 @@ class App extends Component {
             exact
             path="/"
             component={Index}
+            onEnter={reload}
+          />
         </Switch>
       </Router>
     );
