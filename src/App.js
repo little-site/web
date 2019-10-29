@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Posts from './controllers/Posts';
 import Post from './controllers/Post';
-import SignIn from './controllers/SignIn';
 import Index from './views/Home';
 
 const reload = () => window.location.reload();
@@ -12,7 +11,6 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/signin" component={SignIn} />
           <Route
             exact
             path="/:site"
@@ -23,12 +21,7 @@ class App extends Component {
             path="/:site/:slug"
             component={props => <Post {...props} />}
           />
-          <Route
-            exact
-            path="/"
-            component={Index}
-            onEnter={reload}
-          />
+          <Route exact path="/" component={Index} onEnter={reload} />
         </Switch>
       </Router>
     );
