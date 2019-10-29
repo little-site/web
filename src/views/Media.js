@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Base.css';
-import './Media.css';
+
+const MediaWrapper = 'border-box db overflow-hidden w-100 mv2 relative',
+  MediaElement = 'w-100 absolute transition-opacity oversize';
 
 class Media extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class Media extends Component {
   renderMediaElement() {
     const commonAttributes = {
       src: this.props.url_optimized,
-      className: this.state.mediaLoaded ? '' : 'hidden'
+      className: `{${this.state.mediaLoaded ? '' : 'o-0'} ${MediaElement}}`
     };
 
     const mediaLoadedState = {
@@ -35,7 +37,6 @@ class Media extends Component {
 
       case 'gif':
         return (
-          // TODO: Use poster.jpeg file
           <video
             alt=""
             onLoadStart={e => {
@@ -47,6 +48,7 @@ class Media extends Component {
             controls={false}
             muted={true}
             playsInline={true}
+            poster={this.props.url_poster}
             {...commonAttributes}
           />
         );
@@ -64,11 +66,11 @@ class Media extends Component {
 
     return (
       <div
-        className="Media__wrapper"
+        className={MediaWrapper}
         style={style}
-        onClick={() => {
-          window.open(this.props.url, '_blank');
-        }}
+        // onClick={() => {
+        //   window.open(this.props.url, '_blank');
+        // }}
       >
         {this.renderMediaElement()}
       </div>

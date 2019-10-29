@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Posts from './controllers/Posts';
 import Post from './controllers/Post';
 import SignIn from './controllers/SignIn';
+import Index from './views/Home';
 
 const reload = () => window.location.reload();
 
@@ -24,7 +25,8 @@ class App extends Component {
           />
           <Route
             exact
-            path="/.well-known/apple-developer-domain-association.txt"
+            path="/"
+            component={Index}
             onEnter={reload}
           />
         </Switch>
